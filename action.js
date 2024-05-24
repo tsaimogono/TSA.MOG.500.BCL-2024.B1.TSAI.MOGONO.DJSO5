@@ -9,7 +9,7 @@ export const addAction = () => {
     return { ...state, 
       value: state.value + 1 };
   };
-  
+
   /**
  * Decrementing the value in the current state.
  * @returns {Object} A new state object with a decremented value.
@@ -18,3 +18,12 @@ export const subtractAction = () => {
     return { ...state, 
       value: state.value - 1 };
   };
+  
+/**
+ * Resetting the state to its initial value.
+ * @returns {Object} The initial state object.
+ */
+export const resetAction = () => {
+    return { ...initialState };
+  };
+  
