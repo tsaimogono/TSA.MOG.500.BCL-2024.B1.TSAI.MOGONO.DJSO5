@@ -28,3 +28,22 @@ export const dispatch = (action) => {
     state = next;
   };
   
+  /**
+ * A function to register an observer function that will be called on state changes
+ * @param {Function} notify - The callback function to be called on state changes.
+ * @returns {Function} The unsubscribe function.
+ */
+export const subscribe = (notify) => {
+    // Add the subscriber to the subscribers array
+    subscribers.push(notify);
+  
+    // Unsubscribe from state changes.
+    const unsubscribe = () => {
+      // Remove the subscriber from the subscribers array
+      const result = subscribers.filter((current) => current !== notify);
+      subscribers = result;
+    };
+  
+    return unsubscribe;
+  };
+  
