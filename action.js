@@ -27,3 +27,11 @@ export const resetAction = () => {
     return { ...initialState };
   };
   
+  /**
+ * Get the current state.
+ * @returns {void} Logs the state object to the console.
+ */
+export const getState = () => {
+    console.log(state.value);
+  };
+  
