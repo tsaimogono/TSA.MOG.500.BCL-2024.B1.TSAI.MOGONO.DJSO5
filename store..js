@@ -17,3 +17,14 @@ export const subscribers = [];
  * @param {Function} action - Execute the action function and get the next state
  * @returns {void}
  */
+
+export const dispatch = (action) => {
+    const prev = state;
+  
+    const next = action();
+    // Notify all subscribers with the previous and next states
+    subscribers.forEach((notify) => notify(prev, next));
+    // Update the state with the new state object
+    state = next;
+  };
+  
